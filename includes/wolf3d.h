@@ -18,6 +18,7 @@
 # include <stdio.h>
 # include <mlx.h>
 # include <math.h>
+# include <vector.h>
 
 # define	PROG_NAME		"Wolfd3d"
 # define	MAX_FUNC		65365
@@ -59,12 +60,6 @@ typedef struct		s_tab
 	int					len;
 	char				**tab;
 }						t_tab;
-
-typedef	struct		s_vector2d
-{
-	double				x;
-	double				y;
-}					t_vector2d;
 
 typedef	struct		s_camera
 {
@@ -151,7 +146,7 @@ void		init_map(t_map *map, char *inline_map);
 /*
 ** vector functions
 */
-void		vector2d_normalize(t_vector2d *vector);
+//void		vector2d_normalize(t_vector2d *vector);
 
 /*
 ** drawing functions

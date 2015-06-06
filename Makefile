@@ -29,6 +29,9 @@ _BIN=parser.o\
 	player_position_d.o\
 	player_data.o\
 	map_data.o\
+	vector2d_add.o\
+	vector2d_sub.o\
+	vector2d_mult.o\
 	window_init.o
 BIN= $(patsubst %, $(BINDIR)%, $(_BIN))
 
