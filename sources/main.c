@@ -6,22 +6,11 @@
 /*   By: kcouliba <kcouliba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/08 16:46:06 by kcouliba          #+#    #+#             */
-/*   Updated: 2015/06/03 21:22:49 by kcouliba         ###   ########.fr       */
+/*   Updated: 2015/06/09 23:46:35 by kcouliba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <wolf3d.h>
-
-int		map[8][8] = {
-	{ 1, 1, 1, 1, 1, 1, 1, 1 },
-	{ 1, 0, 0, 0, 0, 1, 0, 1 },
-	{ 1, 0, 0, 0, 0, 1, 0, 1 },
-	{ 1, 0, 0, 2, 0, 1, 0, 1 },
-	{ 1, 0, 0, 0, 0, 1, 0, 1 },
-	{ 1, 0, 0, 0, 0, 0, 0, 1 },
-	{ 1, 0, 0, 0, 0, 0, 0, 1 },
-	{ 1, 1, 1, 1, 1, 1, 1, 1 }
-};
 
 char	mapc[] = "11111111\n10000101\n10000101\n10020101\n10000101\n10000001\n10000001\n11111111\0";
 
@@ -55,32 +44,24 @@ double			raycasting(t_ray ray, t_map map)
 	return (1.0);
 }
 
-static	void	init(t_env *env, char *inline_map)
+static	int		show_usage(void)
 {
-	t_ray		ray;
-	size_t		x;
+	ft_putstr("Usage : ./wolf3d");
+	ft_putstr(" [-d]");
+	ft_putendl(" [-l level[0-9]]");
+	return (EXIT_FAILURE);
+}
 
-	init_player(&env->player);
-	init_map(&env->map, mapc);
-	(void)inline_map;
-// for each casted ray
-	x = 0;
-	while (x < WIDTH)
-	{
-		env->player.camera.pos.x = ((x * 2) / (double)WIDTH) - 1;
-//		ft_putnbr(env.player.camera.pos.x * 100);
-//		ft_putendl(" (x)");
-		ray.pos.x = env->player.pos.x;
-		ray.pos.y = env->player.pos.y;
-		ray.dir.x = env->player.pos.x;
-		ray.dir.y = env->player.pos.y;
-		raycasting(ray, env->map);
-		++x;
-	}
+static	size_t	activate_debug(char **argv)
+{
+	(void)argv;
+	return (EXIT_SUCCESS);
+}
 
-	window_init(env);
-	ft_putendl("running");
-	mlx_loop(env->mlx);
+static	size_t	get_level(int level)
+{
+	(void)level;
+	return (EXIT_SUCCESS);
 }
 
 int				main(int argc, char **argv)
@@ -88,8 +69,9 @@ int				main(int argc, char **argv)
 	t_env		env;
 
 	ft_putendl("start");
+	if (argc < 2)
+		return (show_usage());
 	env.debug = ((argc > 1) && ft_strequ(argv[1], "--debug")) ? 1 : 0;
-	init(&env, NULL);
 	(void)argv;
 	return (0);
 }
