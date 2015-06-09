@@ -6,7 +6,7 @@
 /*   By: kcouliba <kcouliba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/06 15:23:18 by kcouliba          #+#    #+#             */
-/*   Updated: 2015/06/09 22:30:12 by kcouliba         ###   ########.fr       */
+/*   Updated: 2015/06/09 22:39:24 by kcouliba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,21 +21,10 @@
 # include <vector.h>
 
 # define PROG_NAME		"Wolfd3d"
+# define DEG2RAD(x)		(M_PI * x) / 180
+# define ABS(x)			(x < 0) ? -x : x
 # define MAX_FUNC		65365
 # define QUIT			53
-# define P_ROTLEFT		4
-# define P_ROTRIGHT		38
-# define P_STEPFWD		13
-# define P_STEPBACK		1
-# define P_STEPLEFT		0
-# define P_STEPRIGHT		2
-# define P_STEPSPEED		16
-# define P_ROTSPEED		10
-# define P_MOVEFWD		1
-# define P_MOVEBWD		-1
-# define P_MOVELEFT		-1
-# define P_MOVERIGHT		1
-# define EDGEOFFSET		P_STEPSPEED / 2
 # define EAST_DIR		0
 # define WEST_DIR		1
 # define NORTH_DIR		2
@@ -44,10 +33,10 @@
 # define HEIGHT			(WIDTH / 4) * 3
 # define DIST			(WIDTH / 2) / tan((30 * M_PI) / 180)
 # define WALLSIZE		64
-# define MINIMAPSIZE		100
+# define MINIMAPSIZE	100
 # define CAMERAHEIGHT	WALLSIZE / 2
-# define FOV				2 * atan(0.66 / 1.0)
-# define RED				0xFF0000
+# define FOV			2 * atan(0.66 / 1.0)
+# define RED			0xFF0000
 # define GREEN			0x00FF00
 # define BLUE			0x0000FF
 # define BLACK			0x000000
@@ -55,9 +44,21 @@
 # define FLOOR			'0'
 # define WALL			'1'
 # define PLAYER			'P'
-# define VALID_CHARS		" 01P\n"
-# define DEG2RAD(x)		(M_PI * x) / 180
-# define ABS(x)			(x < 0) ? -x : x
+# define VALID_CHARS	" 01P\n"
+# define P_ROTLEFT		4
+# define P_ROTRIGHT		38
+# define P_STEPFWD		13
+# define P_STEPBACK		1
+# define P_STEPLEFT		0
+# define P_STEPRIGHT	2
+# define P_ROTSPEED		10
+# define P_MOVEFWD		1
+# define P_MOVEBWD		-1
+# define P_MOVELEFT		-1
+# define P_MOVERIGHT	1
+# define P_SIZE			WALLSIZE / 2
+# define P_STEPSPEED	P_SIZE / 2
+
 
 typedef struct		s_tab
 {
