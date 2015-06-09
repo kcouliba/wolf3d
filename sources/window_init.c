@@ -6,7 +6,7 @@
 /*   By: kcouliba <kcouliba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/18 22:16:50 by kcouliba          #+#    #+#             */
-/*   Updated: 2015/05/13 17:15:50 by kcouliba         ###   ########.fr       */
+/*   Updated: 2015/06/09 22:23:59 by kcouliba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static	void	init_img(t_env *e)
 void			refresh_window(t_env *e)
 {
 	mlx_clear_window(e->mlx, e->win);
-	// All the main drawing methods come here
+// All the main drawing methods come here
 //	draw_map(e);
 //	draw_mini_map(e);
 }
