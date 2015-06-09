@@ -6,7 +6,7 @@
 #    By: kcouliba <kcouliba@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/12/13 14:27:30 by kcouliba          #+#    #+#              #
-#    Updated: 2015/06/03 21:16:20 by kcouliba         ###   ########.fr        #
+#    Updated: 2015/06/09 22:13:17 by kcouliba         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -21,9 +21,9 @@ CC=gcc
 CFLAGS=-Wall -Wextra -Werror
 ILINKS=-I $(INCDIR) -I $(LIBDIR)includes/ -I ./minilibx/
 LLINKS=-L /usr/X11/lib/ -L $(LIBDIR) -L ./minilibx
-_BIN=parser.o\
-	main.o\
+_BIN=main.o\
 	mlx_hook.o\
+	player_move.o\
 	player_step.o\
 	player_rotate.o\
 	player_position_d.o\
@@ -32,6 +32,7 @@ _BIN=parser.o\
 	vector2d_add.o\
 	vector2d_sub.o\
 	vector2d_mult.o\
+	vector2d.o\
 	window_init.o
 BIN= $(patsubst %, $(BINDIR)%, $(_BIN))
 
