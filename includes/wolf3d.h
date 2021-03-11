@@ -6,7 +6,7 @@
 /*   By: kcouliba <kcouliba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/06 15:23:18 by kcouliba          #+#    #+#             */
-/*   Updated: 2015/06/09 22:39:24 by kcouliba         ###   ########.fr       */
+/*   Updated: 2015/06/09 23:44:22 by kcouliba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <vector.h>
 
 # define PROG_NAME		"Wolfd3d"
+# define LEVEL_DIR		"./level/"
 # define DEG2RAD(x)		(M_PI * x) / 180
 # define ABS(x)			(x < 0) ? -x : x
 # define MAX_FUNC		65365
@@ -132,6 +133,11 @@ int			key_hook(int keycode, t_env *env);
 int			loop_hook(t_env *e);
 
 /*
+** parsing functions
+*/
+t_env		parser(char *filename);
+
+/*
 ** player functions
 */
 void		player_move(t_env *e, double way);
@@ -141,7 +147,7 @@ size_t		player_step_left(t_env *e, int keycode);
 size_t		player_step_right(t_env *e, int keycode);
 size_t		player_rotate_left(t_env *e, int keycode);
 size_t		player_rotate_right(t_env *e, int keycode);
-void		init_player(t_player *player);
+void		init_player(t_player *player, t_vector position);
 void		update_player_data(t_env *e);
 
 /*
